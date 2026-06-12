@@ -191,8 +191,33 @@
     .screenshot-img {
       width: 100%; border-radius: 4px;
       border: 1px solid var(--rule); display: block;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
     .screenshot-caption { font-size: 12px; color: var(--ink-light); margin-top: 8px; font-style: italic; }
+
+    /* ── STATEMENT CARDS — visual breaks between each statement ── */
+    .statement-block {
+      margin: 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .statement-block:last-child { border-bottom: none; }
+    .statement-block-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 20px 36px 0;
+    }
+    .statement-block-header-line {
+      flex: 1; height: 1px; background: var(--rule);
+    }
+    .statement-block-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ink-light);
+      background: var(--white); padding: 0 12px;
+      white-space: nowrap;
+    }
+    .statement-block-inner {
+      padding: 20px 36px 32px;
+    }
+    .statement-block:nth-child(even) { background: #fafbfc; }
 
     /* case-specific screenshot visibility */
     .case-content { display: none; }
@@ -299,14 +324,14 @@
     <p class="hero-eyebrow">Finance Portfolio</p>
     <h1>Aniruddh Menon</h1>
     <p class="hero-sub">
-      Building institutional-quality financial models. Currently focused on 
-      equity research and valuation — 3-statement modelling, scenario analysis, 
-      and DCF valuation.
+      Engineering and Economics undergraduate at NUS, exploring how businesses are valued 
+      and what drives long-term financial performance. This portfolio documents that 
+      learning — built from annual reports, one model at a time.
     </p>
     <div class="hero-links">
-      <a href="#models" class="btn btn-primary">View Models</a>
+      <a href="#models" class="btn btn-primary">View Work</a>
       <a href="https://linkedin.com/in/aniruddh-menon" class="btn btn-outline" target="_blank">LinkedIn</a>
-      <a href="mailto:aniruddh@email.com" class="btn btn-outline">Contact</a>
+      <a href="mailto:e1488190@u.nus.edu" class="btn btn-outline">Contact</a>
     </div>
   </div>
 </div>
@@ -319,33 +344,32 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          <!-- REPLACE: your About Me paragraph 1 -->
-          Finance professional with a strong interest in equity valuation and 
-          financial modelling. Passionate about building models that are accurate, 
-          transparent, and genuinely useful for investment decisions.
+          I started building financial models to understand how the numbers in an 
+          annual report connect to each other — and to the business behind them. 
+          The more I dug in, the more interesting it got.
         </p>
         <p>
-          <!-- REPLACE: your About Me paragraph 2 — education, goals, etc -->
-          Currently building out a portfolio of institutional-quality models 
-          covering listed equities in Singapore and Southeast Asia.
+          Each model here is built from scratch using the company's actual filings. 
+          The process of tying every historical figure to the source, then making 
+          assumptions about the future, opened up questions I hadn't thought to ask before.
         </p>
       </div>
       <div class="about-stats">
         <div class="stat-row">
-          <span class="stat-label">Focus</span>
-          <span class="stat-value">Equity Research &amp; Valuation</span>
+          <span class="stat-label">Approach</span>
+          <span class="stat-value">Built from primary source annual reports</span>
         </div>
         <div class="stat-row">
-          <span class="stat-label">Markets</span>
-          <span class="stat-value">Singapore / Southeast Asia</span>
+          <span class="stat-label">Coverage</span>
+          <span class="stat-value">Singapore &amp; Asia-Pacific listed equities</span>
         </div>
         <div class="stat-row">
           <span class="stat-label">Models</span>
-          <span class="stat-value">3-Statement, DCF (in progress)</span>
+          <span class="stat-value">3-Statement · DCF (in progress)</span>
         </div>
         <div class="stat-row">
           <span class="stat-label">Tools</span>
-          <span class="stat-value">Excel, Financial Modelling</span>
+          <span class="stat-value">Excel · Financial Modelling</span>
         </div>
       </div>
     </div>
@@ -355,9 +379,9 @@
 <!-- ── MODELS ── -->
 <div class="page-wrap">
   <section id="models">
-    <p class="section-label">Financial Models</p>
-    <h2 class="section-title">Work</h2>
-    <p class="section-sub">All models built from primary source annual reports. Historicals verified line-by-line.</p>
+    <p class="section-label">Quantitative Work</p>
+    <h2 class="section-title">Financial Models</h2>
+    <p class="section-sub">Built from primary source annual reports. Every historical figure verified line-by-line against reported financials.</p>
 
     <!-- ── SEMBCORP MODEL CARD ── -->
     <div class="model-card">
@@ -367,7 +391,7 @@
         <span class="model-tag">3-Statement</span>
         <span class="model-tag">Scenario Analysis</span>
         <span class="model-tag">SGX: U96</span>
-        <h3 class="model-title">Sembcorp Industries — 3-Statement Financial Model</h3>
+        <h3 class="model-title">Sembcorp Industries Limited — 3-Statement Financial Model</h3>
         <p class="model-desc">
           Fully integrated income statement, balance sheet, and cash flow model 
           covering FY2024A–FY2030E. Built from the Sembcorp FY2025 Annual Report. 
@@ -399,79 +423,98 @@
       </div>
 
       <!-- ── DASHBOARD (case-specific) ── -->
-      <div class="screenshot-section">
-        <p class="screenshot-section-title">Dashboard</p>
-
+      <div class="statement-block">
+        <div class="statement-block-header">
+          <span class="statement-block-label">Dashboard</span>
+          <div class="statement-block-header-line"></div>
+        </div>
+        <div class="statement-block-inner">
         <div class="case-content" id="dash-best">
           <img src="images/sembcorp-dashboard-best.png" class="screenshot-img" alt="Best Case Dashboard" />
         </div>
-
         <div class="case-content active" id="dash-base">
           <img src="images/sembcorp-dashboard-base.png" class="screenshot-img" alt="Base Case Dashboard" />
         </div>
-
         <div class="case-content" id="dash-worst">
           <img src="images/sembcorp-dashboard-worst.png" class="screenshot-img" alt="Worst Case Dashboard" />
         </div>
-
         <p class="screenshot-caption" id="dash-caption">Base Case — FY2024A–FY2030E.</p>
+        </div>
       </div>
 
       <!-- ── INCOME STATEMENT (case-specific) ── -->
-      <div class="screenshot-section">
-        <p class="screenshot-section-title">Income Statement</p>
-
-        <div class="case-content" id="is-best">
-          <img src="images/sembcorp-is-best.png" class="screenshot-img" alt="Best Case Income Statement" />
+      <div class="statement-block">
+        <div class="statement-block-header">
+          <span class="statement-block-label">Income Statement</span>
+          <div class="statement-block-header-line"></div>
         </div>
-        <div class="case-content active" id="is-base">
-          <img src="images/sembcorp-is-base.png" class="screenshot-img" alt="Base Case Income Statement" />
-        </div>
-        <div class="case-content" id="is-worst">
-          <img src="images/sembcorp-is-worst.png" class="screenshot-img" alt="Worst Case Income Statement" />
+        <div class="statement-block-inner">
+          <div class="case-content" id="is-best">
+            <img src="images/sembcorp-is-best.png" class="screenshot-img" alt="Best Case Income Statement" />
+          </div>
+          <div class="case-content active" id="is-base">
+            <img src="images/sembcorp-is-base.png" class="screenshot-img" alt="Base Case Income Statement" />
+          </div>
+          <div class="case-content" id="is-worst">
+            <img src="images/sembcorp-is-worst.png" class="screenshot-img" alt="Worst Case Income Statement" />
+          </div>
         </div>
       </div>
 
       <!-- ── CASH FLOW (case-specific) ── -->
-      <div class="screenshot-section">
-        <p class="screenshot-section-title">Cash Flow Statement</p>
-
-        <div class="case-content" id="cfs-best">
-          <img src="images/sembcorp-cfs-best.png" class="screenshot-img" alt="Best Case Cash Flow Statement" />
+      <div class="statement-block">
+        <div class="statement-block-header">
+          <span class="statement-block-label">Cash Flow Statement</span>
+          <div class="statement-block-header-line"></div>
         </div>
-        <div class="case-content active" id="cfs-base">
-          <img src="images/sembcorp-cfs-base.png" class="screenshot-img" alt="Base Case Cash Flow Statement" />
-        </div>
-        <div class="case-content" id="cfs-worst">
-          <img src="images/sembcorp-cfs-worst.png" class="screenshot-img" alt="Worst Case Cash Flow Statement" />
+        <div class="statement-block-inner">
+          <div class="case-content" id="cfs-best">
+            <img src="images/sembcorp-cfs-best.png" class="screenshot-img" alt="Best Case Cash Flow Statement" />
+          </div>
+          <div class="case-content active" id="cfs-base">
+            <img src="images/sembcorp-cfs-base.png" class="screenshot-img" alt="Base Case Cash Flow Statement" />
+          </div>
+          <div class="case-content" id="cfs-worst">
+            <img src="images/sembcorp-cfs-worst.png" class="screenshot-img" alt="Worst Case Cash Flow Statement" />
+          </div>
         </div>
       </div>
 
-      <!-- ── BALANCE SHEET — same across all cases ── -->
-      <div class="screenshot-section">
-        <p class="screenshot-section-title">Balance Sheet</p>
-        <div class="case-content" id="bs-best">
-          <img src="images/sembcorp-bs-best.png" class="screenshot-img" alt="Best Case Balance Sheet" />
+      <!-- ── BALANCE SHEET (case-specific) ── -->
+      <div class="statement-block">
+        <div class="statement-block-header">
+          <span class="statement-block-label">Balance Sheet</span>
+          <div class="statement-block-header-line"></div>
         </div>
-        <div class="case-content active" id="bs-base">
-          <img src="images/sembcorp-bs-base.png" class="screenshot-img" alt="Base Case Balance Sheet" />
-        </div>
-        <div class="case-content" id="bs-worst">
-          <img src="images/sembcorp-bs-worst.png" class="screenshot-img" alt="Worst Case Balance Sheet" />
+        <div class="statement-block-inner">
+          <div class="case-content" id="bs-best">
+            <img src="images/sembcorp-bs-best.png" class="screenshot-img" alt="Best Case Balance Sheet" />
+          </div>
+          <div class="case-content active" id="bs-base">
+            <img src="images/sembcorp-bs-base.png" class="screenshot-img" alt="Base Case Balance Sheet" />
+          </div>
+          <div class="case-content" id="bs-worst">
+            <img src="images/sembcorp-bs-worst.png" class="screenshot-img" alt="Worst Case Balance Sheet" />
+          </div>
         </div>
       </div>
 
       <!-- ── INPUTS (case-specific) ── -->
-      <div class="screenshot-section">
-        <p class="screenshot-section-title">Scenario Inputs</p>
-        <div class="case-content" id="inp-best">
-          <img src="images/sembcorp-inputs-best.png" class="screenshot-img" alt="Best Case Inputs" />
+      <div class="statement-block">
+        <div class="statement-block-header">
+          <span class="statement-block-label">Scenario Inputs</span>
+          <div class="statement-block-header-line"></div>
         </div>
-        <div class="case-content active" id="inp-base">
-          <img src="images/sembcorp-inputs-base.png" class="screenshot-img" alt="Base Case Inputs" />
-        </div>
-        <div class="case-content" id="inp-worst">
-          <img src="images/sembcorp-inputs-worst.png" class="screenshot-img" alt="Worst Case Inputs" />
+        <div class="statement-block-inner">
+          <div class="case-content" id="inp-best">
+            <img src="images/sembcorp-inputs-best.png" class="screenshot-img" alt="Best Case Inputs" />
+          </div>
+          <div class="case-content active" id="inp-base">
+            <img src="images/sembcorp-inputs-base.png" class="screenshot-img" alt="Base Case Inputs" />
+          </div>
+          <div class="case-content" id="inp-worst">
+            <img src="images/sembcorp-inputs-worst.png" class="screenshot-img" alt="Worst Case Inputs" />
+          </div>
         </div>
       </div>
 
@@ -557,7 +600,7 @@
     <!-- ── DCF COMING SOON ── -->
     <div class="coming-soon-card">
       <span class="cs-badge">In Progress</span>
-      <h3 class="cs-title">Sembcorp Industries — DCF Valuation</h3>
+      <h3 class="cs-title">Sembcorp Industries Limited — DCF Valuation</h3>
       <p class="cs-desc">
         Discounted cash flow valuation model built on top of the 3-statement model above.
         Will include WACC build-up, terminal value sensitivity analysis, and a football 
@@ -574,11 +617,11 @@
     <p class="section-label">Contact</p>
     <h2 class="section-title">Get in touch</h2>
     <p style="color:var(--ink-mid);margin-bottom:20px;max-width:480px;">
-      Open to opportunities in investment banking, equity research, and corporate finance. 
-      Feel free to reach out.
+      Open to conversations about finance, strategy, engineering, or anything 
+      at the intersection of the three. Feel free to reach out.
     </p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <a href="mailto:aniruddh@email.com" class="btn btn-primary">Email Me</a>
+      <a href="mailto:e1488190@u.nus.edu" class="btn btn-primary">Email Me</a>
       <a href="https://linkedin.com/in/aniruddh-menon" class="btn btn-outline" target="_blank">LinkedIn</a>
     </div>
   </section>
